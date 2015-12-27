@@ -1,0 +1,1 @@
+var inner=document.querySelector(".inner"),list=document.query()
