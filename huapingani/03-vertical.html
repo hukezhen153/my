@@ -136,8 +136,8 @@
 .text_box em img{background-size: 100% auto; width: 0.76rem;height: 0.72rem;display: none;}
 .text_box span em{width: 1.27rem;height: 1.21rem; }
 .text_box span img{width: 1.27rem;height: 1.21rem; background-size: 100% auto;}
-.h_p1{line-height: 1rem;text-align: center;font-size: 0.32rem;color: #b1b1b1; position: absolute;bottom:3.5rem;left: 50%;margin-left: -50%;width: 100%; opacity: 0;}
-.h_btn1{width: 6.32rem;height: 1.67rem; position: absolute;bottom: 1.5rem; margin-left: -3.16rem;left: 50%;opacity: 0;}
+.h_p1{line-height:0.5rem;text-align: center;font-size: 0.32rem;color: #b1b1b1; position: absolute;bottom:2.8rem;left: 50%;margin-left: -50%;width: 100%; opacity: 0;}
+.h_btn1{width: 6.32rem;height: 1.67rem; position: absolute;bottom: 0.8rem; margin-left: -3.16rem;left: 50%;opacity: 0;}
 .h_btn1 img{width: 6rem;background-size: 100% auto;}
 .h_btn1.bounceIn{animation: bounceIn 1s 3s forwards;}
 .text_box1{width: 3.81rem; margin: 0 auto;}
@@ -216,9 +216,7 @@
    
    
     
-    window.onload=function(){
-    		music.play();
-    }
+  
      
 	var num = -1;
 	
@@ -229,6 +227,10 @@
 	        var i = setInterval(function() {
 	            num++;
 	            ems[num].style.display="block"; 
+	            
+	            if (num >= 0){
+	            		music.play();         	  
+	            }
 	            if (num >= 16){
 		         clearInterval(i);
 		         i=null;
