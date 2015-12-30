@@ -79,12 +79,24 @@ Copyright (c) 2014 Daniel Eden
   }
 }
 
+@-webkit-keyframes myani{
+	0{opacity: 0;margin-top: 0;}
+	50%{opacity: 0.5;margin-top: 1rem;}
+	100%{opacity: 1;margin-top: 0;}
+}@keyframes myani{
+	0{opacity: 0;margin-top: 0;}
+	50%{opacity: 0.5;margin-top: 1rem;}
+	100%{opacity: 1;margin-top: 0;}
+}
+
 .bounce {
-  -webkit-animation-name: bounce;
-          animation-name: bounce;
+  -webkit-animation-name: bounce 0.5s  linear 2s forwards;
+          animation-name: bounce 0.5s  linear 2s forwards;
   -webkit-transform-origin: center bottom;
       -ms-transform-origin: center bottom;
           transform-origin: center bottom;
+          animation: myani 0.5s linear 2s forwards; 
+  -webkit-animation: myani 0.5s linear 4s forwards;
 }
 
 @-webkit-keyframes flash {

@@ -40,6 +40,8 @@
         font-size: 18px;
         background: url(images/h_bj.jpg) no-repeat;
         background-size: cover;
+        width: 100%;
+        background-size:100% auto;
 
         /* Center slide text vertically */
         /*display: -webkit-box;
@@ -57,39 +59,24 @@
         color: #fff;
     }
    
-   .animated{
-    	 -webkit-animation-play-state: paused;
-	  -moz-animation-play-state: paused;
-	  -o-animation-play-state: paused;
-	  -ms-animation-play-state: paused;
-	  animation-play-state: paused;
-    }
-    .swiper-slide-active .animated {
-  -webkit-animation-play-state: running;
-  -moz-animation-play-state: running;
-  -o-animation-play-state: running;
-  -ms-animation-play-state: running;
-  animation-play-state: running;
-}
+ 
 .h_logo{position: absolute;top: 0;left: 0;width: 1.32rem;height:0.64rem;z-index: 10;}
 .h_logo img{width:100%;height:100%;}
 
 .h_yanwu{position: absolute; width: 5.75rem;height: 2.72rem;left: 50%;margin-left:-2.8rem;top: 1.2rem;z-index: 0; opacity: 0;
--webkit-animation: pulse 0.5s linear 2.2s both;animation: pulse 0.5s linear 4.2s both;}
-
+}
+.pulse{-webkit-animation: pulse 0.5s linear 2.2s both;animation: pulse 0.5s linear 4.2s both;}
 @-webkit-keyframes pulse {
   0% {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1);
             opacity: 0;
   }
-
   50% {
     -webkit-transform: scale3d(1.1, 1.05, 1.05);
             transform: scale3d(1.1, 1.05, 1.05);
             opacity: 1;
   }
-
   100% {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1);
@@ -103,13 +90,11 @@
             transform: scale3d(1, 1, 1);
             opacity: 0;
   }
-
   50% {
     -webkit-transform: scale3d(1.1, 1.05, 1.05);
             transform: scale3d(1.1, 1.05, 1.05);
             opacity: 1;
   }
-
   100% {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1);
@@ -121,18 +106,8 @@
 
 .h_yanwu img{width: 5.75rem;height: 2.72rem;}
 .h_jiao{width: 3.3rem; height: 2.31rem;opacity: 0; margin: 0 auto;}
-.animated.bounce2{animation: myani 0.5s linear 2s both; -webkit-animation: myani 0.5s linear 4s both;}
-@-webkit-keyframes myani{
-	0{opacity: 0;margin-top: 0;}
-	50%{opacity: 0.5;margin-top: 1rem;}
-	100%{opacity: 1;margin-top: 0;}
-}@keyframes myani{
-	0{opacity: 0;margin-top: 0;}
-	50%{opacity: 0.5;margin-top: 1rem;}
-	100%{opacity: 1;margin-top: 0;}
-}
-.h_jiao img{background-size: 100% auto;width: 3.3rem; height: 2.31rem;}
 
+.h_jiao img{background-size: 100% auto;width: 3.3rem; height: 2.31rem;}
 .text_box{width: 3.81rem; margin: 0 auto;}
 .text_box em{display: block;float: left;}
 .text_box em img{background-size: 100% auto; width: 0.76rem;height: 0.72rem;display: none;}
@@ -145,8 +120,51 @@
 .text_box1{width: 3.81rem; margin: 0 auto;}
 .text_box1 img{ width: 3.81rem;}
 .text_box.rubberBand{animation: rubberBand 2s 4s forwards;}
-.h_btn1.fadeInUpBig{animation: fadeInUpBig .5s 4.7s forwards;}
-.h_p1.fadeInLeftBig{animation: fadeInLeftBig .5s 4.5s forwards;}
+.fadeInUpBig{animation: fadeInUpBig .5s 4.7s forwards;}
+.fadeInLeftBig{animation: fadeInLeftBig .5s 4.5s forwards;}
+
+
+.animated{
+    	 -webkit-animation-play-state: paused;
+	  -moz-animation-play-state: paused;
+	  -o-animation-play-state: paused;
+	  -ms-animation-play-state: paused;
+	  animation-play-state: paused;
+    }
+    .swiper-slide-active .animated {
+  -webkit-animation-play-state: running;
+  -moz-animation-play-state: running;
+  -o-animation-play-state: running;
+  -ms-animation-play-state: running;
+  animation-play-state: running;
+}
+
+.loading{
+    width: 100%;
+    height:100%;
+    background: #000;
+    position: absolute;
+    z-index: 10;
+}
+.progress{
+    margin: 0 15%;
+    width: 70%;
+    position: absolute;
+    top:40%;
+    height: 40px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.loadSpan{
+    width: 0;
+    display: block;
+    height: 40px;
+    background-image:-webkit-linear-gradient(45deg, #5cb85c 25% , #74c274 50% , #5cb85c 75%,#74c274 100% );
+    background-size: 40px 40px;
+    background-repeat:repeat-x;
+    -webkit-transition: 1s;
+}
     </style>
 </head>
 <body>
@@ -160,15 +178,23 @@
     	    
     	    <div class="h_logo"><img src="images/h_logo.png"/></div>
     	    
+    	     
+	    
+    	    
         <div class="swiper-wrapper">
+        	
+	        
             <div class="swiper-slide">
-            	    
-    	  			 <div class="h_yanwu"><img src="images/h_yanwu.png"/></div> 
-	             <div class="h_jiao animated bounce bounce2" id="h_jiao"><img src="images/h_jiao.png"/></div>
-	             
-	           
-	             
-	             <div class="text_box animated rubberBand" id="textBox"><em><img src="images/h_text1.png"/></em><em><img src="images/h_text2.png"/></em><em><img src="images/h_text3.png"/></em><em><img src="images/h_text4.png"/></em><em><img src="images/h_text5.png"/></em>
+            	 	
+		        <div class="loading">
+		            <p class="progress">
+		                <span class="loadSpan"></span>
+		            </p>
+		        </div>
+            	
+    	  			<div class="h_yanwu animated pulse"><img src="images/h_yanwu.png"/></div> 
+	            <div class="h_jiao animated bounce" id="h_jiao"><img src="images/h_jiao.png"/></div>
+	            <div class="text_box animated rubberBand" id="textBox"><em><img src="images/h_text1.png"/></em><em><img src="images/h_text2.png"/></em><em><img src="images/h_text3.png"/></em><em><img src="images/h_text4.png"/></em><em><img src="images/h_text5.png"/></em>
 	             	<span><em><img src="images/h_wenzi1.png"/></em><em><img src="images/h_wenzi2.png"/></em><em><img src="images/h_wenzi3.png"/></em><em><img src="images/h_wenzi4.png"/></em><em><img src="images/h_wenzi5.png"/></em><em><img src="images/h_wenzi6.png"/></em><em><img src="images/h_wenzi7.png"/></em><em><img src="images/h_wenzi8.png"/></em><em><img src="images/h_wenzi9.png"/></em><em><img src="images/h_wenzi10.png"/></em><em><img src="images/h_wenzi11.png"/></em><em><img src="images/h_wenzi12.png"/></em><em></em></span>
 	             </div>
 	             <p class="h_p1 animated fadeInLeftBig">— Uber上线时被网友吐槽 ／2010年</p>
@@ -177,12 +203,8 @@
             
             
             <div class="swiper-slide">
-            		
-            	    
-    	  			 <div class="h_yanwu"><img src="images/h_yanwu.png"/></div> 
-	             <div class="h_jiao animated bounce bounce2" id="h_jiao"><img src="images/h_jiao.png"/></div>
-	             
-	           
+    	  			 <div class="h_yanwu animated pulse"><img src="images/h_yanwu.png"/></div> 
+	             <div class="h_jiao animated bounce" id="h_jiao"><img src="images/h_jiao.png"/></div>
 	             
 	             <div class="text_box animated rubberBand" id="textBox"><em><img src="images/h_text1.png"/></em><em><img src="images/h_text2.png"/></em><em><img src="images/h_text3.png"/></em><em><img src="images/h_text4.png"/></em><em><img src="images/h_text5.png"/></em>
 	             	<span><em><img src="images/h_wenzi1.png"/></em><em><img src="images/h_wenzi2.png"/></em><em><img src="images/h_wenzi3.png"/></em><em><img src="images/h_wenzi4.png"/></em><em><img src="images/h_wenzi5.png"/></em><em><img src="images/h_wenzi6.png"/></em><em><img src="images/h_wenzi7.png"/></em><em><img src="images/h_wenzi8.png"/></em><em><img src="images/h_wenzi9.png"/></em><em><img src="images/h_wenzi10.png"/></em><em><img src="images/h_wenzi11.png"/></em><em><img src="images/h_wenzi12.png"/></em><em></em></span>
@@ -215,6 +237,8 @@
 
     <!-- Initialize Swiper -->
     <script>
+    
+    
     var winW=document.documentElement.clientWidth;
     var desW=750;
     var rem=desW/100;
@@ -226,44 +250,55 @@
     var music=document.getElementById("music");
     var music2=document.getElementById("music2");
     
-   
-    
-//  var i = setTimeout(function(){
-// 	 	music2.play();
-// },1000);
-// clearTimeout(i);
-   
-   
-    
-  
-     
-	var num = -1;
-	
-	var inputbx=document.getElementById("textBox");
-	var ems=inputbx.getElementsByTagName("img");
-	var hJiao=document.getElementById("h_jiao");
-	
+/******onload******/
+var loadSpan = document.querySelector(".loadSpan");
+var arr= ['h_bj.jpg', 'h_btun.png', 'h_jiao.png', 'h_logo.png', 'h_sjtou.png', 'h_text1.png', 'h_text2.png', 'h_text3.png','h_text4.png', 'h_text5.png', 'h_wenzi1.png', 'h_wenzi2.png', 'h_wenzi3.png', 'h_wenzi4.png', 'h_wenzi5.png', 'h_wenzi6.png', 'h_wenzi7.png', 'h_wenzi8.png', 'h_wenzi9.png', 'h_wenzi10.png', 'h_wenzi11.png', 'h_wenzi12.png', 'h_wenzimg.png', 'h_bj_03.png', 'h_yanwu.png'];
+var n = 0;
 
-		
-	        var i = setInterval(function() {
-	            num++;
-	            ems[num].style.display="block"; 
-	            
-	            if (num == 0){
-	            		music.play();         	  
-	            }
-	            if (num >= 16){
-		         clearInterval(i);
-		         i=null;
-    		         music.pause();
-		      }
-	        }, 200);
-	
+
+fnLoad();
+function fnLoad(){
+    arr.forEach(function(){
+        var oImg = new Image();
+        oImg.src = "images/"+arguments[0];
+        oImg.onload = function(){
+            n++;
+            loadSpan.style.width = n/arr.length*100+"%"
+        }
+    })
+    loadSpan.addEventListener("webkitTransitionEnd",function(){
+        this.parentNode.parentNode.remove();
+		setImagesTimer(ems);
+    },false)
+
+}
+/******onload******/
+   
+
+
+//function========================
+var num = -1;
+var inputbx=document.getElementById("textBox");
+var ems=inputbx.getElementsByTagName("img");
+var hJiao=document.getElementById("h_jiao");
+function setImagesTimer(eles){
+    var timer = window.setInterval(function() {
+        num++;
+        if (num == 0){
+            music.play();
+        }
+        ems[num].style.display="block";
+        if (num >= eles.length-1){
+            window.clearInterval(timer);
+            timer = null;
+            music.pause();
+        }
+    }, 150);
+}
+
+
+//function========================
 		    
-	        
-	        
-	            	   
-	       
     
     var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
@@ -273,6 +308,7 @@
         spaceBetween: 0,
         
     });
+    
     </script>
 </body>
 </html>
