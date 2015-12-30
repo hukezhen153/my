@@ -95,8 +95,8 @@ Copyright (c) 2014 Daniel Eden
   -webkit-transform-origin: center bottom;
       -ms-transform-origin: center bottom;
           transform-origin: center bottom;
-          animation: myani 0.5s linear 2s forwards; 
-  -webkit-animation: myani 0.5s linear 4s forwards;
+          animation: myani 0.5s linear  forwards; 
+  -webkit-animation: myani 0.5s linear  forwards;
 }
 
 @-webkit-keyframes flash {

@@ -65,7 +65,7 @@
 
 .h_yanwu{position: absolute; width: 5.75rem;height: 2.72rem;left: 50%;margin-left:-2.8rem;top: 1.2rem;z-index: 0; opacity: 0;
 }
-.pulse{-webkit-animation: pulse 0.5s linear 2.2s both;animation: pulse 0.5s linear 4.2s both;}
+.pulse{-webkit-animation: pulse 0.5s linear both;animation: pulse 0.5s linear both;}
 @-webkit-keyframes pulse {
   0% {
     -webkit-transform: scale3d(1, 1, 1);
@@ -192,8 +192,8 @@
 		            </p>
 		        </div>
             	
-    	  			<div class="h_yanwu animated pulse"><img src="images/h_yanwu.png"/></div> 
-	            <div class="h_jiao animated bounce" id="h_jiao"><img src="images/h_jiao.png"/></div>
+    	  			<div class="h_yanwu animated" id="pulse"><img src="images/h_yanwu.png"/></div> 
+	            <div class="h_jiao animated" id="h_jiao"><img src="images/h_jiao.png"/></div>
 	            <div class="text_box animated rubberBand" id="textBox"><em><img src="images/h_text1.png"/></em><em><img src="images/h_text2.png"/></em><em><img src="images/h_text3.png"/></em><em><img src="images/h_text4.png"/></em><em><img src="images/h_text5.png"/></em>
 	             	<span><em><img src="images/h_wenzi1.png"/></em><em><img src="images/h_wenzi2.png"/></em><em><img src="images/h_wenzi3.png"/></em><em><img src="images/h_wenzi4.png"/></em><em><img src="images/h_wenzi5.png"/></em><em><img src="images/h_wenzi6.png"/></em><em><img src="images/h_wenzi7.png"/></em><em><img src="images/h_wenzi8.png"/></em><em><img src="images/h_wenzi9.png"/></em><em><img src="images/h_wenzi10.png"/></em><em><img src="images/h_wenzi11.png"/></em><em><img src="images/h_wenzi12.png"/></em><em></em></span>
 	             </div>
@@ -204,7 +204,7 @@
             
             <div class="swiper-slide">
     	  			 <div class="h_yanwu animated pulse"><img src="images/h_yanwu.png"/></div> 
-	             <div class="h_jiao animated bounce" id="h_jiao"><img src="images/h_jiao.png"/></div>
+	             <div class="h_jiao animated" id="h_jiao"><img src="images/h_jiao.png"/></div>
 	             
 	             <div class="text_box animated rubberBand" id="textBox"><em><img src="images/h_text1.png"/></em><em><img src="images/h_text2.png"/></em><em><img src="images/h_text3.png"/></em><em><img src="images/h_text4.png"/></em><em><img src="images/h_text5.png"/></em>
 	             	<span><em><img src="images/h_wenzi1.png"/></em><em><img src="images/h_wenzi2.png"/></em><em><img src="images/h_wenzi3.png"/></em><em><img src="images/h_wenzi4.png"/></em><em><img src="images/h_wenzi5.png"/></em><em><img src="images/h_wenzi6.png"/></em><em><img src="images/h_wenzi7.png"/></em><em><img src="images/h_wenzi8.png"/></em><em><img src="images/h_wenzi9.png"/></em><em><img src="images/h_wenzi10.png"/></em><em><img src="images/h_wenzi11.png"/></em><em><img src="images/h_wenzi12.png"/></em><em></em></span>
@@ -232,6 +232,7 @@
 
     <!-- Swiper JS -->
     <script src="js/swiper.min.js"></script>
+    <script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     
     
 
@@ -281,6 +282,8 @@ var num = -1;
 var inputbx=document.getElementById("textBox");
 var ems=inputbx.getElementsByTagName("img");
 var hJiao=document.getElementById("h_jiao");
+
+
 function setImagesTimer(eles){
     var timer = window.setInterval(function() {
         num++;
@@ -294,7 +297,22 @@ function setImagesTimer(eles){
             music.pause();
         }
     }, 150);
+    
+    var timer2 = window.setTimeout(function(){
+            $("#h_jiao").addClass("bounce");
+    },2600);
+    var timer3 = window.setTimeout(function(){
+    	       $("#pulse").addClass("pulse");
+    },2700);
 }
+
+var swipActive =$(".swiper-slide");
+    if(swipActive.hasClass("swiper-slide-active")){
+		setImagesTimer(ems);
+    };
+
+
+
 
 
 //function========================
